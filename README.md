@@ -64,10 +64,11 @@ Lo script `install_dependencies.sh` (o tramite il link rapido `./install.sh`) ri
 ```
 ~/.config/sway/
 ├── config                   # File di configurazione principale di Sway
-├── variables.conf           # Variabili di base (mod, terminale, menu)
+├── variables.conf           # Variabili di base (mod, terminale, menu, file manager)
 ├── autostart.conf           # Avvio demone e servizi di background
+├── env                      # Variabili d'ambiente Wayland / Java / Qt
 ├── monitors.conf            # Configurazione risoluzione e posizione monitor
-├── default_apps.sh          # Assegnazione associazioni xdg-mime
+├── default_apps.sh          # Assegnazione associazioni xdg-mime (Nemo, Geany, etc.)
 ├── install_dependencies.sh  # Script installer multi-distro
 ├── install.sh               # Collegamento simbolico a install_dependencies.sh
 ├── .gitignore               # Esclusioni file temporanei/cache
@@ -77,16 +78,22 @@ Lo script `install_dependencies.sh` (o tramite il link rapido `./install.sh`) ri
 │   ├── rofi-bluetooth       # Gestione connessioni Bluetooth con Rofi
 │   ├── rofi_notif.sh        # Cronologia notifiche Dunst tramite Rofi
 │   ├── polkit-agent.sh      # Wrapper universale per l'agente PolKit
-│   └── portal-init.sh       # Inizializzatore universale per XDG Desktop Portal
+│   ├── portal-init.sh       # Inizializzatore universale per XDG Desktop Portal
+│   ├── rofi-power-menu      # Menu di spegnimento e logout posizionato in alto con Rofi
+│   ├── rofi-screencast-chooser # Selettore dello schermo per condivisione video via Rofi
+│   └── volume.sh            # Controller volume sicuro con tetto a 100% (wpctl/pactl)
+├── portals/                 # Configurazioni XDG Desktop Portal (Screencast con Rofi)
+│   ├── sway-portals.conf    # Mappatura backend XDG Desktop Portal
+│   └── wlr-config           # Configurazione xdpw con selettore Rofi
 ├── config.d/                # Moduli aggiuntivi
 │   ├── 40-sway-background.conf
 │   ├── default_applications.conf
 │   ├── ricing.conf          # Colori Gruvbox, gap e bordi
-│   └── windows_rules.conf   # Regole finestre fluttuanti
+│   └── windows_rules.conf   # Regole finestre fluttuanti, PiP e inhibit_idle
 ├── input/                   # Configurazione tastiera, touchpad e gesti
 ├── output/                  # Configurazione schermi e monitor
 ├── wallpaper/               # Sfondi desktop inclusi
-└── waybar/                  # Configurazione e stile CSS di Waybar
+└── waybar/                  # Configurazione e stile CSS minimale Gruvbox Dark
 ```
 
 ---
@@ -97,7 +104,12 @@ Lo script `install_dependencies.sh` (o tramite il link rapido `./install.sh`) ri
 |---|---|
 | `Mod + Invio` | Apre il terminale Foot |
 | `Mod + Spazio` | Apre il launcher Rofi |
+| `Alt + Tab` | **Window Switcher**: cerca e salta a qualsiasi finestra aperta (Rofi) |
+| `Mod + n` | Apre il file manager Nemo |
 | `Mod + Shift + q` | Chiude la finestra corrente |
+| `Mod + Tab` / `Mod + Shift + Tab` | Cicla i workspace sul monitor corrente (`next_on_output`) |
+| `Mod + BackSpace` | **Workspace Ping-Pong**: torna al workspace precedente (`back_and_forth`) |
+| `Mod + Shift + e` | **Menu di sistema modale**: (l)ock, (e)xit, (s)uspend, (r)eboot, (Shift+s)hutdown |
 | `Mod + Shift + c` | Cronologia appunti (Cliphist + Rofi) |
 | `Mod + Shift + w` | Gestore reti WiFi (NetworkManager + Rofi) |
 | `Mod + Shift + b` | Gestore Bluetooth (Rofi) |
@@ -105,4 +117,7 @@ Lo script `install_dependencies.sh` (o tramite il link rapido `./install.sh`) ri
 | `Mod + Shift + p` | Configurazione display grafici (`wdisplays`) |
 | `Print` | Cattura schermo intero (in `~/Pictures/screenshots`) |
 | `Mod + Print` | Selezione area screenshot copiata negli appunti |
+| `Mod + Alt + Print` | Screenshot finestra attiva copiato negli appunti (tramite `jq`) |
+| `Alt + Print` | Screenshot finestra attiva salvato su file |
+| `Tasti Media` | Play/Pausa/Next/Prev gestiti globalmente con `playerctl` |
 | `Ctrl + Alt + l` | Blocca lo schermo (`gtklock`) |

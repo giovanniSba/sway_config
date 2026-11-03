@@ -211,6 +211,7 @@ check_system_status() {
     check_cmd "grim" "Screenshot capturer"
     check_cmd "slurp" "Regione dello schermo per screenshot"
     check_cmd "brightnessctl" "Regolazione luminosità schermo"
+    check_cmd "playerctl" "Controllo multimediale MPRIS"
     check_cmd "pactl" "Controllo volume PulseAudio/PipeWire"
     check_cmd "pavucontrol" "Mixer audio grafico"
     check_cmd "wdisplays" "Configuratore grafico display"
@@ -384,6 +385,12 @@ post_install_tasks() {
         chmod +x "$script_dir/default_apps.sh"
     fi
 
+    # Configurazione automatica dei portali XDG (screencast con Rofi)
+    if [ -x "$script_dir/bin/portal-init.sh" ]; then
+        "$script_dir/bin/portal-init.sh" >/dev/null 2>&1 || true
+        success "Portali XDG configurati (Screencast collegato a Rofi)."
+    fi
+
     # Groups check
     local current_user="${USER:-$(whoami)}"
     local groups_to_check=("video" "input")
@@ -431,6 +438,7 @@ install_void() {
         grim
         slurp
         brightnessctl
+        playerctl
         pavucontrol
         pulseaudio-utils
         wdisplays
@@ -494,6 +502,7 @@ install_arch() {
         grim
         slurp
         brightnessctl
+        playerctl
         pavucontrol
         libpulse
         wdisplays
@@ -573,6 +582,7 @@ install_debian() {
         grim
         slurp
         brightnessctl
+        playerctl
         pavucontrol
         pulseaudio-utils
         wdisplays
@@ -646,6 +656,7 @@ install_fedora() {
         grim
         slurp
         brightnessctl
+        playerctl
         pavucontrol
         pulseaudio-utils
         wdisplays
@@ -710,6 +721,7 @@ install_opensuse() {
         grim
         slurp
         brightnessctl
+        playerctl
         pavucontrol
         pulseaudio-utils
         wdisplays

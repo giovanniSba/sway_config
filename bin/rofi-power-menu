@@ -1,0 +1,36 @@
+#!/usr/bin/env bash
+# ==============================================================================
+# Rofi Power Menu (Minimal - English)
+# Posizionato in alto, aderente al tema Gruvbox di Rofi
+# ==============================================================================
+
+OPTIONS="Lock\nLogout\nSuspend\nReboot\nShutdown"
+
+CHOSEN=$(echo -e "$OPTIONS" | rofi -dmenu \
+    -i \
+    -p "System" \
+    -location 2 \
+    -yoffset 25 \
+    -theme-str 'window { location: north; y-offset: 25px; width: 260px; } listview { lines: 5; }' \
+    -no-custom)
+
+case "$CHOSEN" in
+    "Lock")
+        gtklock -d
+        ;;
+    "Logout")
+        swaymsg exit
+        ;;
+    "Suspend")
+        loginctl suspend
+        ;;
+    "Reboot")
+        loginctl reboot
+        ;;
+    "Shutdown")
+        loginctl poweroff
+        ;;
+    *)
+        exit 0
+        ;;
+esac

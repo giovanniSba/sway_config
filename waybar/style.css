@@ -58,6 +58,16 @@ window#waybar {
     font-weight: bold;
 }
 
+#mode {
+    font-size: 13px;
+    background: #3c3836;
+    color: #fbf1c7;
+    border-bottom: 2px solid #fe8019;
+    font-weight: bold;
+    padding: 0 8px;
+    margin: 0 4px;
+}
+
 /* -----------------------------------------------------------------------------
    Moduli di base (Testo e icone minimali #ebdbb2)
    ----------------------------------------------------------------------------- */

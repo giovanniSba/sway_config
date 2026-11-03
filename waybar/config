@@ -2,6 +2,7 @@
     "position": "bottom",
     "modules-left": [
         "sway/workspaces",
+        "sway/mode",
         "hyprland/workspaces"
     ],
     "modules-right": [

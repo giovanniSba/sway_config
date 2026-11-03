@@ -1,0 +1,23 @@
+# Recommended environment variables for Wayland Sway desktop
+# Sourced by Sway or in ~/.profile / ~/.bash_profile
+
+# Fix blank/gray windows in Java applications (Freeplane, DBeaver, IntelliJ, etc.)
+export _JAVA_AWT_WM_NONREPARENTING=1
+
+# Native Wayland for Firefox
+export MOZ_ENABLE_WAYLAND=1
+
+# Native Wayland for Qt applications with X11 fallback
+export QT_QPA_PLATFORM="wayland;xcb"
+
+# Native Wayland for SDL games and multimedia
+export SDL_VIDEODRIVER=wayland
+
+# Native Wayland for Clutter
+export CLUTTER_BACKEND=wayland
+
+# Avoid AT-SPI bus lookup delay
+export NO_AT_BRIDGE=1
+
+# Ensure desktop name is properly recognized
+export XDG_CURRENT_DESKTOP=sway

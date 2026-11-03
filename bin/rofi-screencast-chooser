@@ -1,0 +1,14 @@
+#!/usr/bin/env bash
+# ==============================================================================
+# Screen Sharing Chooser via Rofi for xdg-desktop-portal-wlr
+# ==============================================================================
+
+if [ -z "$WAYLAND_DISPLAY" ]; then
+    export WAYLAND_DISPLAY="$(find /run/user/$(id -u) -name "wayland-*" -type s -printf "%f\n" 2>/dev/null | head -n 1)"
+fi
+export XDG_CURRENT_DESKTOP=sway
+
+exec rofi -dmenu -i -p "Share screen" \
+    -location 2 \
+    -yoffset 25 \
+    -theme-str 'window { location: north; y-offset: 25px; width: 300px; border: 2px; border-color: #504945; border-radius: 6px; } element-text { font: "sans-serif 12"; }'
