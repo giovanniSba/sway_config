@@ -24,7 +24,7 @@ Lo script `install_dependencies.sh` (o tramite il link rapido `./install.sh`) ri
 # Installa tutte le dipendenze essenziali di Sway:
 ./install.sh
 
-# Oppure installa tutto, incluse le applicazioni predefinite (thunar, vlc, geany, etc.):
+# Oppure installa tutto, incluse le applicazioni predefinite (nemo, vlc, geany, etc.):
 ./install.sh --all
 ```
 

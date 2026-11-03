@@ -3,7 +3,7 @@
 xdg-mime default firefox.desktop x-scheme-handler/http x-scheme-handler/https text/html
 # 
 # # File Manager
-xdg-mime default thunar.desktop inode/directory
+xdg-mime default nemo.desktop inode/directory
 # 
 # # Testo e Codice
 xdg-mime default geany.desktop text/plain application/json application/xml text/markdown text/csv
@@ -28,6 +28,6 @@ xdg-mime default libreoffice-writer.desktop application/vnd.openxmlformats-offic
 xdg-mime default libreoffice-calc.desktop application/vnd.openxmlformats-officedocument.spreadsheetml.sheet application/vnd.ms-excel application/vnd.oasis.opendocument.spreadsheet
 # 
 # 
-gio mime inode/directory thunar.desktop
+gio mime inode/directory nemo.desktop
 gio mime application/pdf org.gnome.Evince.desktop
 gio mime text/plain geany.desktop

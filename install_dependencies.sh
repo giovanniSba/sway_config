@@ -40,7 +40,7 @@ ${CYAN}Usage:${NC}
 ${CYAN}Options:${NC}
   -c, --check             Verifica lo stato delle dipendenze sul sistema attuale senza installare nulla.
   -a, --all               Installa sia le dipendenze essenziali di Sway che le applicazioni consigliate.
-      --apps              Installa solo le applicazioni consigliate (thunar, vlc, geany, evince, etc.).
+      --apps              Installa solo le applicazioni consigliate (nemo, vlc, geany, evince, etc.).
   -d, --dry-run           Mostra i comandi del gestore di pacchetti che verrebbero eseguiti, senza eseguirli.
   -y, --yes               Modalità non interattiva (risponde 'Sì' a tutte le conferme).
       --distro <NAME>     Forza una distribuzione specifica (void, arch, debian, ubuntu, fedora, opensuse).
@@ -269,7 +269,7 @@ check_system_status() {
     fi
 
     echo -e "\n${CYAN}${BOLD}[6] Applicazioni Predefinite (default_apps.sh):${NC}"
-    check_cmd "thunar" "File manager"
+    check_cmd "nemo" "File manager"
     check_cmd "firefox" "Browser Web"
     check_cmd "vlc" "Media player"
     check_cmd "geany" "Editor di testo"
@@ -451,7 +451,7 @@ install_void() {
     )
 
     local APP_PKGS=(
-        thunar
+        nemo
         firefox
         vlc
         geany
@@ -517,7 +517,7 @@ install_arch() {
     )
 
     local APP_PKGS=(
-        thunar
+        nemo
         firefox
         vlc
         geany
@@ -593,7 +593,7 @@ install_debian() {
     )
 
     local APP_PKGS=(
-        thunar
+        nemo
         vlc
         geany
         evince
@@ -667,7 +667,7 @@ install_fedora() {
     )
 
     local APP_PKGS=(
-        thunar
+        nemo
         firefox
         vlc
         geany
@@ -729,7 +729,7 @@ install_opensuse() {
     )
 
     local APP_PKGS=(
-        thunar
+        nemo
         MozillaFirefox
         vlc
         geany
@@ -774,7 +774,7 @@ main() {
     info "Target OS: ${BOLD}$DISTRO${NC} | Modalità: ${BOLD}$MODE${NC}"
 
     if [ "$MODE" = "core" ] && [ "$NON_INTERACTIVE" = false ]; then
-        read -rp "Desideri installare anche le applicazioni predefinite consigliate (thunar, vlc, geany, etc.)? [s/N] " ans
+        read -rp "Desideri installare anche le applicazioni predefinite consigliate (nemo, vlc, geany, etc.)? [s/N] " ans
         case "$ans" in
             [sS][iI]|[sS]|[yY][eE][sS]|[yY])
                 MODE="all"

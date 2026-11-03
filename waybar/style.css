@@ -1,3 +1,7 @@
+/* =============================================================================
+   Waybar Gruvbox Dark Theme - Minimal Edition
+   ============================================================================= */
+
 * {
     font-family: "FontAwesome", "Symbols Nerd Font", sans-serif;
     font-size: 23px;
@@ -6,61 +10,157 @@
 }
 
 window#waybar {
-    background-color: #FDF8D8;
-    color: #504945;
+    background-color: #282828; /* Gruvbox Dark base */
+    color: #ebdbb2;            /* Gruvbox Cream naturale */
+    border-top: 1px solid #3c3836;
+}
+
+/* -----------------------------------------------------------------------------
+   Workspaces (Minimal & compatti)
+   ----------------------------------------------------------------------------- */
+#workspaces {
+    margin: 0;
+    padding: 0 2px;
 }
 
 #workspaces button {
-    padding: 0 8px;
+    padding: 0 3px;          /* Spaziatura orizzontale compatta */
+    margin: 0 1px;           /* Margine minimo tra i pulsanti */
+    min-width: 0;
+    min-height: 0;
     background: transparent;
-    color: #928374; /* Colore inattivo Gruvbox */
+    color: #928374;          /* Grigio tenue per workspace inattivi */
     border: none;
+    border-radius: 2px;
     box-shadow: none;
+    transition: all 0.15s ease-in-out;
 }
 
 #workspaces button:hover {
-    background: transparent;
-    color: #d79921; /* Colore hover */
-}
-
-#workspaces button.active {
-    color: #d65d0e; /* Colore attivo Gruvbox */
-    font-weight: bold;
+    background: #3c3836;
+    color: #ebdbb2;
 }
 
 #workspaces button.focused {
-    color: #458588;
+    color: #fbf1c7;          /* Crema chiaro per workspace attivo (senza colori accesi) */
+    background: #3c3836;     /* Sfondo scuro discreto */
+    font-weight: bold;
+}
+
+#workspaces button.active {
+    color: #ebdbb2;
     font-weight: bold;
 }
 
 #workspaces button.urgent {
-    color: #cc241d;
+    color: #fbf1c7;
+    background-color: #cc241d;
     font-weight: bold;
 }
 
-#idle_inhibitor, #network, #custom-notify, #clock, #tray {
+/* -----------------------------------------------------------------------------
+   Moduli di base (Testo e icone minimali #ebdbb2)
+   ----------------------------------------------------------------------------- */
+#idle_inhibitor,
+#network,
+#custom-notify,
+#clock,
+#tray {
     padding: 0 10px;
-    background-color: #FDF8D8;
+    background-color: #282828;
+    color: #ebdbb2;
 }
 
-#battery, #backlight, #pulseaudio {
-    padding: 0 10px;
-    color: #3c3836;
+#network.disconnected {
+    color: #928374;
 }
 
-#custom-arrow1, #custom-arrow2, #custom-arrow3, #custom-arrow4 {
+/* -----------------------------------------------------------------------------
+   Powerline Arrows & Segmenti a gradiente scuro minimale
+   ----------------------------------------------------------------------------- */
+#custom-arrow1,
+#custom-arrow2,
+#custom-arrow3,
+#custom-arrow4 {
     font-size: 28px;
     margin: 0;
     padding: 0;
 }
 
-#custom-arrow1 { color: #d7d7a1; background: #FDF8D8; }
-#battery { background-color: #d7d7a1; }
+/* Segmento 1: Battery */
+#custom-arrow1 {
+    color: #32302f;
+    background-color: #282828;
+}
 
-#custom-arrow2 { color: #f4e0a4; background: #d7d7a1; }
-#backlight { background-color: #f4e0a4; }
+#battery {
+    padding: 0 10px;
+    background-color: #32302f;
+    color: #ebdbb2;
+}
 
-#custom-arrow3 { color: #c2d5c4; background: #f4e0a4; }
-#pulseaudio { background-color: #c2d5c4; }
+#battery.critical:not(.charging) {
+    background-color: #cc241d;
+    color: #fbf1c7;
+}
 
-#custom-arrow4 { color: #FDF8D8; background: #c2d5c4; }
+/* Segmento 2: Backlight */
+#custom-arrow2 {
+    color: #3c3836;
+    background-color: #32302f;
+}
+
+#backlight {
+    padding: 0 10px;
+    background-color: #3c3836;
+    color: #ebdbb2;
+}
+
+/* Segmento 3: Pulseaudio */
+#custom-arrow3 {
+    color: #32302f;
+    background-color: #3c3836;
+}
+
+#pulseaudio {
+    padding: 0 10px;
+    background-color: #32302f;
+    color: #ebdbb2;
+}
+
+#pulseaudio.muted {
+    color: #928374;
+}
+
+/* Segmento 4: Ritorno a Clock/Tray */
+#custom-arrow4 {
+    color: #282828;
+    background-color: #32302f;
+}
+
+#clock.date {
+    color: #ebdbb2;
+    padding-right: 4px;
+}
+
+#clock.time {
+    color: #ebdbb2;
+    padding-left: 4px;
+}
+
+/* -----------------------------------------------------------------------------
+   Tray & Tooltip
+   ----------------------------------------------------------------------------- */
+#tray {
+    padding: 0 8px;
+}
+
+tooltip {
+    background: #1d2021;
+    border: 1px solid #3c3836;
+    border-radius: 4px;
+}
+
+tooltip label {
+    color: #ebdbb2;
+}

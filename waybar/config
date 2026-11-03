@@ -45,7 +45,6 @@
     },
     "custom/notify": {
         "format": "",
-        "on-click": "swaync-client -t",
         "on-click": "~/.config/sway/bin/rofi_notif.sh"
     },
     "backlight": {
@@ -72,6 +71,11 @@
     },
     "clock#time": {
         "format": " {:%R}"
+    },
+    "sway/workspaces": {
+        "disable-scroll": true,
+        "all-outputs": true,
+        "format": "{name}"
     },
     "ext/workspaces": {
         "format": "{name}",
