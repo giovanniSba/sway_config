@@ -1,0 +1,97 @@
+{
+    "position": "bottom",
+    "modules-left": [
+        "sway/workspaces",
+        "hyprland/workspaces"
+    ],
+    "modules-right": [
+        "idle_inhibitor",
+        "custom/notify",
+        "network",
+        "custom/arrow1",
+        "battery",
+        "custom/arrow2",
+        "backlight",
+        "custom/arrow3",
+        "pulseaudio",
+        "custom/arrow4",
+        "clock#date",
+        "clock#time",
+        "tray"
+    ],
+    "custom/arrow1": { "format": "", "tooltip": false },
+    "custom/arrow2": { "format": "", "tooltip": false },
+    "custom/arrow3": { "format": "", "tooltip": false },
+    "custom/arrow4": { "format": "", "tooltip": false },
+    "idle_inhibitor": {
+        "format": "{icon}",
+        "format-icons": {
+            "activated": "",
+            "deactivated": ""
+        }
+    },
+    "network": {
+        "format-wifi": "{icon} {essid}",
+        "format-ethernet": " {ipaddr}",
+        "format-disconnected": "⚠",
+        "format-icons": ["󰤯", "󰤟", "󰤢", "󰤥", "󰤨"],
+        "on-click": "~/.config/sway/bin/networkmanager_dmenu"
+    },
+    "battery": {
+        "format": "{icon} {capacity}%",
+        "format-charging": " {capacity}%",
+        "format-plugged": " {capacity}%",
+        "format-icons": ["", "", "", "", ""]
+    },
+    "custom/notify": {
+        "format": "",
+        "on-click": "swaync-client -t",
+        "on-click": "~/.config/sway/bin/rofi_notif.sh"
+    },
+    "backlight": {
+        "format": "{icon} {percent}%",
+        "format-icons": ["", "", "", "", "", "", "", "", ""]
+    },
+    "pulseaudio": {
+        "format": "{icon} {volume}%",
+        "format-muted": " {volume}%",
+        "format-icons": {
+            "headphone": "",
+            "hands-free": "",
+            "headset": "",
+            "phone": "",
+            "portable": "",
+            "car": "",
+            "default": ["", "", ""]
+        },
+        "on-click": "pavucontrol"
+    },
+    "clock#date": {
+        "format": " {:%a %d/%m}",
+        "on-click": "gnome-calendar"
+    },
+    "clock#time": {
+        "format": " {:%R}"
+    },
+    "ext/workspaces": {
+        "format": "{name}",
+        "sort-by-name": true,
+        "sort-by-id": true,
+        "on-click": "activate"
+    },
+    "tray": {
+        "spacing": 10
+    },
+    "wlr/workspaces": {
+        "disable-scroll": true,
+        "all-outputs": true,
+        "format": "{name}"
+    },
+    "hyprland/workspaces": {
+        "disable-scroll": true,
+        "all-outputs": true,
+        "active-only": false,
+        "format": "{name}",
+        "on-click": "activate"
+    }
+}

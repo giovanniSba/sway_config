@@ -1,0 +1,14 @@
+# Backup and temporary files
+*.old
+*.bak
+*~
+*.swp
+*.swo
+
+# Python cache (if any from nm-dmenu)
+__pycache__/
+*.pyc
+
+# OS generated files
+.DS_Store
+Thumbs.db

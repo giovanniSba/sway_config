@@ -1,0 +1,66 @@
+* {
+    font-family: "FontAwesome", "Symbols Nerd Font", sans-serif;
+    font-size: 23px;
+    border: none;
+    border-radius: 0;
+}
+
+window#waybar {
+    background-color: #FDF8D8;
+    color: #504945;
+}
+
+#workspaces button {
+    padding: 0 8px;
+    background: transparent;
+    color: #928374; /* Colore inattivo Gruvbox */
+    border: none;
+    box-shadow: none;
+}
+
+#workspaces button:hover {
+    background: transparent;
+    color: #d79921; /* Colore hover */
+}
+
+#workspaces button.active {
+    color: #d65d0e; /* Colore attivo Gruvbox */
+    font-weight: bold;
+}
+
+#workspaces button.focused {
+    color: #458588;
+    font-weight: bold;
+}
+
+#workspaces button.urgent {
+    color: #cc241d;
+    font-weight: bold;
+}
+
+#idle_inhibitor, #network, #custom-notify, #clock, #tray {
+    padding: 0 10px;
+    background-color: #FDF8D8;
+}
+
+#battery, #backlight, #pulseaudio {
+    padding: 0 10px;
+    color: #3c3836;
+}
+
+#custom-arrow1, #custom-arrow2, #custom-arrow3, #custom-arrow4 {
+    font-size: 28px;
+    margin: 0;
+    padding: 0;
+}
+
+#custom-arrow1 { color: #d7d7a1; background: #FDF8D8; }
+#battery { background-color: #d7d7a1; }
+
+#custom-arrow2 { color: #f4e0a4; background: #d7d7a1; }
+#backlight { background-color: #f4e0a4; }
+
+#custom-arrow3 { color: #c2d5c4; background: #f4e0a4; }
+#pulseaudio { background-color: #c2d5c4; }
+
+#custom-arrow4 { color: #FDF8D8; background: #c2d5c4; }
